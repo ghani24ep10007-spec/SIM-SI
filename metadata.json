@@ -1,0 +1,6 @@
+{
+  "name": "SIM-SI: Kalkulator IPK & Manajemen Tugas Mahasiswa",
+  "description": "Aplikasi web interaktif perhitungan IPK semester, simulasi target nilai, dan manajemen tugas kuliah mahasiswa Sistem Informasi UNUGHA dengan validasi formulir instan, manipulasi DOM dinamis, penyimpanan localStorage, dan desain touch-friendly minimal 44px.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
