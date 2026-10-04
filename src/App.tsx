@@ -29,6 +29,25 @@ import { TargetSimulatorModal } from './components/TargetSimulatorModal';
 export default function App() {
   const [activeTab, setActiveTab] = useState<'kalkulator' | 'tugas' | 'riwayat' | 'pengumpulan' | 'dokumentasi'>('kalkulator');
   
+  // Dark Mode State with LocalStorage Persistence
+  const [darkMode, setDarkMode] = useState<boolean>(() => {
+    if (typeof window === 'undefined') return false;
+    const saved = localStorage.getItem('SIM_SI_THEME');
+    if (saved) return saved === 'dark';
+    return window.matchMedia('(prefers-color-scheme: dark)').matches;
+  });
+
+  // Apply dark class to <html>
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('SIM_SI_THEME', 'dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('SIM_SI_THEME', 'light');
+    }
+  }, [darkMode]);
+
   // Persistent States
   const [courses, setCourses] = useState<MataKuliah[]>(() =>
     getStoredData<MataKuliah[]>(STORAGE_KEYS.COURSES, getDefaultMataKuliahList())
@@ -210,14 +229,16 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900 pb-20 md:pb-12">
-      {/* Top Bar Contract Navigation */}
+    <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 pb-20 md:pb-12 transition-colors duration-200">
+      {/* Top Bar Contract Navigation with Dark Mode & Blue-Green Styling */}
       <TopNavigation
         activeTab={activeTab}
         setActiveTab={setActiveTab}
         showTouchTargets={showTouchTargets}
         setShowTouchTargets={setShowTouchTargets}
         onExportBackup={handleExportBackup}
+        darkMode={darkMode}
+        setDarkMode={setDarkMode}
       />
 
       {/* Main Content Area */}
@@ -294,12 +315,12 @@ export default function App() {
 
       {/* Floating Toast Notification with Undo */}
       {toast && (
-        <div className="fixed bottom-20 md:bottom-6 right-4 left-4 sm:left-auto sm:right-6 z-50 max-w-md bg-slate-900 text-white px-4 py-3 rounded-2xl shadow-xl border border-slate-800 flex items-center justify-between gap-3 text-xs animate-in fade-in slide-in-from-bottom-5">
+        <div className="fixed bottom-20 md:bottom-6 right-4 left-4 sm:left-auto sm:right-6 z-50 max-w-md bg-slate-900 dark:bg-slate-800 text-white px-4 py-3 rounded-2xl shadow-xl border border-slate-800 dark:border-slate-700 flex items-center justify-between gap-3 text-xs animate-in fade-in slide-in-from-bottom-5">
           <span className="leading-snug">{toast.message}</span>
           {toast.undoAction && (
             <button
               onClick={toast.undoAction}
-              className="min-h-[44px] px-3 py-1 font-bold text-emerald-400 hover:text-emerald-300 underline shrink-0 cursor-pointer"
+              className="min-h-[44px] px-3 py-1 font-bold text-teal-400 hover:text-teal-300 underline shrink-0 cursor-pointer"
             >
               Batalkan
             </button>
@@ -308,12 +329,12 @@ export default function App() {
       )}
 
       {/* Footer */}
-      <footer className="mt-auto border-t border-slate-200 py-6 text-center text-xs text-slate-500">
+      <footer className="mt-auto border-t border-slate-200 dark:border-slate-800 py-6 text-center text-xs text-slate-500 dark:text-slate-400 transition-colors">
         <div className="max-w-7xl mx-auto px-4">
-          <p className="font-semibold text-slate-700">
+          <p className="font-semibold text-slate-700 dark:text-slate-300">
             Sistem Informasi Mahasiswa (SIM-SI) &middot; Universitas Nahdlatul Ulama Al Ghazali (UNUGHA) Cilacap
           </p>
-          <p className="mt-1 text-[11px] text-slate-400">
+          <p className="mt-1 text-[11px] text-slate-400 dark:text-slate-500">
             Tugas 2 Praktikum Pemrograman Web (Prt. 7) &middot; Mahasiswa: {profile.nama} ({profile.nim}) &middot; Kelas {profile.kelas}
           </p>
         </div>

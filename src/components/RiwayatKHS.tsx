@@ -47,7 +47,6 @@ export const RiwayatKHS: React.FC<RiwayatKHSProps> = ({
   const [importJsonText, setImportJsonText] = useState('');
   const [showImportBox, setShowImportBox] = useState(false);
   const [importStatus, setImportStatus] = useState<string | null>(null);
-  const [previewKHS, setPreviewKHS] = useState<SemesterRecord | null>(null);
 
   const handleSave = (e: React.FormEvent) => {
     e.preventDefault();
@@ -87,14 +86,14 @@ export const RiwayatKHS: React.FC<RiwayatKHSProps> = ({
   return (
     <div className="space-y-6">
       {/* Top Banner */}
-      <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-4 sm:p-6">
+      <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm p-4 sm:p-6 transition-colors">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div>
-            <h2 className="text-lg sm:text-xl font-bold text-slate-900 flex items-center gap-2">
-              <History className="w-5 h-5 text-emerald-600" />
-              <span>Riwayat Perhitungan & Cetak KHS (Kartu Hasil Studi)</span>
+            <h2 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
+              <History className="w-5 h-5 text-teal-600 dark:text-teal-400" />
+              <span>Riwayat Perhitungan &amp; Cetak KHS (Kartu Hasil Studi)</span>
             </h2>
-            <p className="text-xs text-slate-500 mt-1">
+            <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
               Simpan snapshot perhitungan nilai per semester ke localStorage dan cetak KHS resmi mahasiswa.
             </p>
           </div>
@@ -102,7 +101,7 @@ export const RiwayatKHS: React.FC<RiwayatKHSProps> = ({
           <div className="flex flex-wrap items-center gap-2">
             <button
               onClick={handleExportDownload}
-              className="min-h-[44px] px-3.5 py-2 text-xs font-semibold bg-slate-900 text-white rounded-xl hover:bg-slate-800 transition-colors flex items-center gap-1.5 cursor-pointer"
+              className="min-h-[44px] px-4 py-2 text-xs font-semibold bg-slate-900 dark:bg-teal-600 hover:bg-slate-800 dark:hover:bg-teal-500 text-white rounded-xl transition-colors flex items-center gap-1.5 cursor-pointer shadow-sm"
             >
               <Download className="w-3.5 h-3.5" />
               <span>Unduh JSON Backup</span>
@@ -110,7 +109,7 @@ export const RiwayatKHS: React.FC<RiwayatKHSProps> = ({
 
             <button
               onClick={() => setShowImportBox(!showImportBox)}
-              className="min-h-[44px] px-3.5 py-2 text-xs font-semibold bg-white text-slate-700 border border-slate-300 rounded-xl hover:bg-slate-50 transition-colors flex items-center gap-1.5 cursor-pointer"
+              className="min-h-[44px] px-4 py-2 text-xs font-semibold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-300 dark:border-slate-700 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors flex items-center gap-1.5 cursor-pointer"
             >
               <Upload className="w-3.5 h-3.5" />
               <span>Impor Backup</span>
@@ -120,28 +119,28 @@ export const RiwayatKHS: React.FC<RiwayatKHSProps> = ({
 
         {/* Import JSON Box */}
         {showImportBox && (
-          <div className="mt-4 p-4 rounded-xl bg-slate-50 border border-slate-200">
-            <h4 className="text-xs font-bold text-slate-800 mb-2">Tempel Kode JSON Cadangan:</h4>
+          <div className="mt-4 p-4 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700">
+            <h4 className="text-xs font-bold text-slate-800 dark:text-slate-200 mb-2">Tempel Kode JSON Cadangan:</h4>
             <textarea
               rows={4}
               value={importJsonText}
               onChange={(e) => setImportJsonText(e.target.value)}
               placeholder='{"version": "1.0.0", "courses": [...]}'
-              className="w-full text-xs font-mono p-3 rounded-lg border border-slate-300 bg-white"
+              className="w-full text-xs font-mono p-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950 text-slate-900 dark:text-white"
             />
             {importStatus && (
-              <p className="text-xs mt-2 font-medium text-emerald-700">{importStatus}</p>
+              <p className="text-xs mt-2 font-medium text-teal-700 dark:text-teal-300">{importStatus}</p>
             )}
             <div className="flex justify-end gap-2 mt-2">
               <button
                 onClick={() => setShowImportBox(false)}
-                className="min-h-[44px] px-3 text-xs text-slate-600 hover:text-slate-900"
+                className="min-h-[44px] px-4 text-xs text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
               >
                 Batal
               </button>
               <button
                 onClick={handleImportSubmit}
-                className="min-h-[44px] px-4 bg-emerald-800 text-white rounded-lg text-xs font-semibold hover:bg-emerald-900"
+                className="min-h-[44px] px-5 bg-teal-700 dark:bg-teal-600 text-white rounded-xl text-xs font-semibold hover:bg-teal-800 dark:hover:bg-teal-500"
               >
                 Pulihkan Data
               </button>
@@ -151,9 +150,9 @@ export const RiwayatKHS: React.FC<RiwayatKHSProps> = ({
       </div>
 
       {/* Save Snapshot Form */}
-      <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-4 sm:p-6">
-        <h3 className="text-sm font-bold text-slate-900 mb-3 flex items-center gap-2">
-          <Save className="w-4 h-4 text-emerald-600" />
+      <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm p-4 sm:p-6 transition-colors">
+        <h3 className="text-sm font-bold text-slate-900 dark:text-white mb-3 flex items-center gap-2">
+          <Save className="w-4 h-4 text-teal-600 dark:text-teal-400" />
           <span>Simpan Sesi Perhitungan Semester Ini</span>
         </h3>
 
@@ -163,11 +162,11 @@ export const RiwayatKHS: React.FC<RiwayatKHSProps> = ({
             value={semesterName}
             onChange={(e) => setSemesterName(e.target.value)}
             placeholder="Label Semester (misal: Semester 3 - Ganjil 2026/2027)"
-            className="flex-1 min-h-[44px] px-4 py-2 text-sm rounded-xl border border-slate-300"
+            className="flex-1 min-h-[44px] px-4 py-2 text-sm rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950 text-slate-900 dark:text-white"
           />
           <button
             type="submit"
-            className="min-h-[44px] px-6 py-2.5 bg-emerald-800 hover:bg-emerald-900 text-white rounded-xl font-semibold text-sm transition-all flex items-center justify-center gap-2 cursor-pointer shadow-sm"
+            className="min-h-[44px] px-6 py-2.5 bg-teal-700 hover:bg-teal-800 dark:bg-teal-600 dark:hover:bg-teal-500 text-white rounded-xl font-semibold text-sm transition-all flex items-center justify-center gap-2 cursor-pointer shadow-sm"
           >
             <Save className="w-4 h-4" />
             <span>Simpan Snapshot ({courses.length} Matkul &middot; IPS {stats.ipSemester.toFixed(2)})</span>
@@ -176,29 +175,29 @@ export const RiwayatKHS: React.FC<RiwayatKHSProps> = ({
       </div>
 
       {/* Printable KHS Section */}
-      <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 print:p-0 print:border-none print:shadow-none">
-        <div className="flex items-center justify-between pb-4 border-b border-slate-200 mb-6 print:hidden">
+      <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm p-6 print:p-0 print:border-none print:shadow-none transition-colors">
+        <div className="flex items-center justify-between pb-4 border-b border-slate-200 dark:border-slate-800 mb-6 print:hidden">
           <div>
-            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
-              <FileText className="w-5 h-5 text-emerald-600" />
+            <h3 className="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
+              <FileText className="w-5 h-5 text-teal-600 dark:text-teal-400" />
               <span>Format Cetak KHS (Kartu Hasil Studi)</span>
             </h3>
-            <p className="text-xs text-slate-500 mt-0.5">
+            <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
               Format lembar resmi universitas yang siap dicetak langsung (A4 Landscape/Portrait).
             </p>
           </div>
 
           <button
             onClick={handlePrint}
-            className="min-h-[44px] px-5 py-2.5 bg-slate-900 hover:bg-slate-800 text-white rounded-xl text-xs font-semibold flex items-center gap-2 cursor-pointer shadow-sm"
+            className="min-h-[44px] px-5 py-2.5 bg-slate-900 dark:bg-teal-600 hover:bg-slate-800 dark:hover:bg-teal-500 text-white rounded-xl text-xs font-semibold flex items-center gap-2 cursor-pointer shadow-sm"
           >
             <Printer className="w-4 h-4" />
             <span>Cetak / Simpan PDF</span>
           </button>
         </div>
 
-        {/* The KHS Document Layout (Clean Academic Sheet) */}
-        <div className="p-6 border border-slate-300 rounded-xl bg-white max-w-4xl mx-auto text-slate-900 print:border-none print:p-0">
+        {/* The KHS Document Layout (Clean Academic Sheet - Keep Light Paper Layout For Printing) */}
+        <div className="p-6 border border-slate-300 rounded-xl bg-white max-w-4xl mx-auto text-slate-900 print:border-none print:p-0 shadow-xs">
           {/* Header Kop Surat */}
           <div className="text-center border-b-2 border-slate-900 pb-4 mb-4">
             <h1 className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-slate-900">
@@ -284,20 +283,20 @@ export const RiwayatKHS: React.FC<RiwayatKHSProps> = ({
                 <td colSpan={3} className="p-2 text-right border-r border-slate-300">JUMLAH TOTAL:</td>
                 <td className="p-2 text-center font-mono border-r border-slate-300">{stats.totalSKS} SKS</td>
                 <td colSpan={3} className="p-2 border-r border-slate-300"></td>
-                <td className="p-2 text-center font-mono text-emerald-800">{stats.totalMutu.toFixed(2)}</td>
+                <td className="p-2 text-center font-mono text-teal-800">{stats.totalMutu.toFixed(2)}</td>
               </tr>
             </tfoot>
           </table>
 
           {/* Academic Recapitulation Summary */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-slate-50 p-3 rounded-lg border border-slate-200 text-xs mb-6 font-mono">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-slate-50 p-3 rounded-xl border border-slate-200 text-xs mb-6 font-mono">
             <div>
               <span className="text-slate-500 block text-[10px]">Indeks Prestasi Semester (IPS)</span>
               <strong className="text-base text-slate-900">{stats.ipSemester.toFixed(2)}</strong>
             </div>
             <div>
               <span className="text-slate-500 block text-[10px]">Predikat Kelulusan</span>
-              <strong className="text-xs text-emerald-800">{stats.predikat}</strong>
+              <strong className="text-xs text-teal-800">{stats.predikat}</strong>
             </div>
             <div>
               <span className="text-slate-500 block text-[10px]">Beban SKS Semester Lulus</span>
@@ -330,27 +329,27 @@ export const RiwayatKHS: React.FC<RiwayatKHSProps> = ({
       </div>
 
       {/* Saved History Snapshots List */}
-      <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
-        <div className="p-4 border-b border-slate-200 bg-slate-50 flex items-center justify-between">
-          <h3 className="text-sm font-bold text-slate-900 flex items-center gap-2">
-            <History className="w-4 h-4 text-emerald-600" />
+      <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden transition-colors">
+        <div className="p-4 border-b border-slate-200 dark:border-slate-800 bg-slate-50/70 dark:bg-slate-850 flex items-center justify-between">
+          <h3 className="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-2">
+            <History className="w-4 h-4 text-teal-600 dark:text-teal-400" />
             <span>Daftar Riwayat Snapshot Tersimpan di LocalStorage</span>
           </h3>
-          <span className="text-xs text-slate-500">{history.length} Snapshot tersimpan</span>
+          <span className="text-xs text-slate-500 dark:text-slate-400">{history.length} Snapshot tersimpan</span>
         </div>
 
         {history.length === 0 ? (
-          <div className="p-8 text-center text-xs text-slate-500">
+          <div className="p-8 text-center text-xs text-slate-500 dark:text-slate-400">
             Belum ada snapshot semester yang disimpan. Gunakan formulir di atas untuk menyimpan snapshot saat ini.
           </div>
         ) : (
-          <div className="divide-y divide-slate-200">
+          <div className="divide-y divide-slate-200 dark:divide-slate-800">
             {history.map((record) => (
-              <div key={record.id} className="p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-slate-50">
+              <div key={record.id} className="p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-slate-50/80 dark:hover:bg-slate-800/40">
                 <div>
-                  <h4 className="text-sm font-bold text-slate-900">{record.namaSemester}</h4>
-                  <div className="text-xs text-slate-500 mt-0.5 flex items-center gap-2">
-                    <span className="font-mono">IPS: {record.ipSemester.toFixed(2)}</span>
+                  <h4 className="text-sm font-bold text-slate-900 dark:text-white">{record.namaSemester}</h4>
+                  <div className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 flex items-center gap-2">
+                    <span className="font-mono text-teal-700 dark:text-teal-400 font-semibold">IPS: {record.ipSemester.toFixed(2)}</span>
                     <span>&middot;</span>
                     <span>{record.totalSKS} SKS ({record.daftarMK.length} Matkul)</span>
                     <span>&middot;</span>
@@ -361,13 +360,13 @@ export const RiwayatKHS: React.FC<RiwayatKHSProps> = ({
                 <div className="flex items-center gap-2">
                   <button
                     onClick={() => onRestoreSnapshot(record)}
-                    className="min-h-[44px] px-3.5 py-2 text-xs font-semibold bg-emerald-50 text-emerald-800 hover:bg-emerald-100 rounded-xl border border-emerald-200 transition-colors"
+                    className="min-h-[44px] px-4 py-2 text-xs font-semibold bg-teal-50 dark:bg-teal-950/60 text-teal-800 dark:text-teal-300 hover:bg-teal-100 dark:hover:bg-teal-900/60 rounded-xl border border-teal-200 dark:border-teal-800 transition-colors"
                   >
                     Buka Snapshot Ini
                   </button>
                   <button
                     onClick={() => onDeleteHistory(record.id)}
-                    className="min-h-[44px] min-w-[44px] flex items-center justify-center text-slate-400 hover:text-rose-600 hover:bg-rose-50 rounded-xl"
+                    className="min-h-[44px] min-w-[44px] flex items-center justify-center text-slate-400 hover:text-rose-600 dark:hover:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-950/30 rounded-xl"
                     aria-label="Hapus snapshot"
                   >
                     <Trash2 className="w-4 h-4" />
