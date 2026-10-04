@@ -26,13 +26,19 @@ export const PengumpulanModal: React.FC<PengumpulanModalProps> = ({ profile }) =
   const [nama, setNama] = useState(profile.nama || 'Rizqi Ghani Adinata');
   const [nim, setNim] = useState(profile.nim || '24ep10007');
   const [kelas, setKelas] = useState(profile.kelas || 'SI Pagi (Kelas B)');
-  const [githubUrl, setGithubUrl] = useState('https://github.com/ghani-adinata/kalkulator-ipk-si-unugha');
+  const [githubUrl, setGithubUrl] = useState('https://github.com/ghani24ep10007-spec/SIM-SI');
   
-  // URL Pilihan: Live Cloud Run Aktif vs Cloudflare Pages
-  const [activeUrlType, setActiveUrlType] = useState<'live' | 'cloudflare'>('live');
+  // URL Pilihan: Live Cloud Run Aktif vs GitHub Pages vs Cloudflare
+  const [activeUrlType, setActiveUrlType] = useState<'live' | 'github-pages' | 'cloudflare'>('live');
+  const [githubPagesUrl, setGithubPagesUrl] = useState('https://ghani24ep10007-spec.github.io/SIM-SI/');
   const [cloudflareUrl, setCloudflareUrl] = useState('https://tugas-web-unugha.pages.dev');
   
-  const currentLiveUrl = activeUrlType === 'live' ? LIVE_WORKING_APP_URL : cloudflareUrl;
+  const currentLiveUrl = 
+    activeUrlType === 'live' 
+      ? LIVE_WORKING_APP_URL 
+      : activeUrlType === 'github-pages'
+      ? githubPagesUrl
+      : cloudflareUrl;
 
   const [catatan, setCatatan] = useState(
     'Aplikasi Kalkulator IPK & Manajemen Tugas Mahasiswa SI UNUGHA telah memenuhi 100% kriteria tugas: Validasi formulir input dengan feedback visual instan (border hijau/merah real-time), manipulasi DOM dinamis (tambah, edit, kalkulasi otomatis, filter, dan sortir tanpa me-reload halaman), penyimpanan riwayat dan data ke LocalStorage browser, serta desain mobile touch-friendly dengan ukuran tombol minimal 44px (min-h-[44px], diuji pada viewport 375px+). Dilengkapi Dark Mode, mode Uji Touch Target, dan dokumentasi lengkap di README.md.'
@@ -269,7 +275,7 @@ Bukti Pengerjaan 4 Rubrik Penilaian:
             </div>
 
             {/* URL Selector Tabs */}
-            <div className="grid grid-cols-2 gap-2 mb-2">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 mb-2">
               <button
                 type="button"
                 onClick={() => setActiveUrlType('live')}
@@ -281,10 +287,25 @@ Bukti Pengerjaan 4 Rubrik Penilaian:
               >
                 <span className="font-bold flex items-center gap-1">
                   <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
-                  Link Cloud Run (Langsung Aktif)
+                  Link Live (Aktif)
                 </span>
                 <span className="text-[10px] text-slate-500 dark:text-slate-400 truncate">
                   {LIVE_WORKING_APP_URL}
+                </span>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => setActiveUrlType('github-pages')}
+                className={`min-h-[44px] px-3 py-2 text-xs font-semibold rounded-xl border transition-all text-left flex flex-col justify-center cursor-pointer ${
+                  activeUrlType === 'github-pages'
+                    ? 'bg-teal-50 dark:bg-teal-950/70 border-teal-500 text-teal-900 dark:text-teal-200'
+                    : 'bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'
+                }`}
+              >
+                <span className="font-bold">GitHub Pages</span>
+                <span className="text-[10px] text-slate-500 dark:text-slate-400 truncate">
+                  {githubPagesUrl}
                 </span>
               </button>
 
@@ -297,7 +318,7 @@ Bukti Pengerjaan 4 Rubrik Penilaian:
                     : 'bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'
                 }`}
               >
-                <span className="font-bold">Domain .pages.dev</span>
+                <span className="font-bold">Cloudflare Pages</span>
                 <span className="text-[10px] text-slate-500 dark:text-slate-400 truncate">
                   {cloudflareUrl}
                 </span>
@@ -309,6 +330,7 @@ Bukti Pengerjaan 4 Rubrik Penilaian:
               value={currentLiveUrl}
               onChange={(e) => {
                 if (activeUrlType === 'cloudflare') setCloudflareUrl(e.target.value);
+                if (activeUrlType === 'github-pages') setGithubPagesUrl(e.target.value);
               }}
               readOnly={activeUrlType === 'live'}
               className="w-full min-h-[44px] px-3.5 py-2.5 text-sm rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950 text-slate-900 dark:text-white font-mono"

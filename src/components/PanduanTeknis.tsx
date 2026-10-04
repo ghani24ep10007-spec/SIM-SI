@@ -36,7 +36,7 @@ git commit -m "feat: implementasi Tugas 2 SIM-SI Kalkulator IPK, Dark Mode & Bir
 
 # 3. Hubungkan ke Akun GitHub Anda & Unggah
 git branch -M main
-git remote add origin https://github.com/ghani-adinata/kalkulator-ipk-si-unugha.git
+git remote add origin https://github.com/ghani24ep10007-spec/SIM-SI.git
 git push -u origin main
 
 # 4. Jalankan Pengujian Otomatis

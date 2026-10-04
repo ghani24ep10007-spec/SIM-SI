@@ -23,8 +23,10 @@
 | **Program Studi** | Sistem Informasi (S1) |
 | **Kelas** | SI Pagi (Kelas B) |
 | **Email Kampus** | `ghani.24ep10007@students.unugha.id` |
-| **URL Repositori GitHub** | [https://github.com/ghani-adinata/kalkulator-ipk-si-unugha](https://github.com/ghani-adinata/kalkulator-ipk-si-unugha) |
-| **URL Live Deployment** | [https://tugas-web-unugha.pages.dev](https://tugas-web-unugha.pages.dev) |
+| **URL Repositori GitHub** | [https://github.com/ghani24ep10007-spec/SIM-SI](https://github.com/ghani24ep10007-spec/SIM-SI) |
+| **URL Live Website (Aktif Langsung)** | [https://ais-pre-zd7zxteioglr4ri6m2dscz-173491160549.asia-southeast1.run.app](https://ais-pre-zd7zxteioglr4ri6m2dscz-173491160549.asia-southeast1.run.app) |
+| **URL GitHub Pages** | [https://ghani24ep10007-spec.github.io/SIM-SI/](https://ghani24ep10007-spec.github.io/SIM-SI/) |
+| **URL Cloudflare Pages** | [https://tugas-web-unugha.pages.dev](https://tugas-web-unugha.pages.dev) |
 
 ---
 
