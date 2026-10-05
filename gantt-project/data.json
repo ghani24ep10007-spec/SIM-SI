@@ -1,0 +1,401 @@
+{
+  "project": {
+    "title": "Pengembangan Sistem Informasi Analisis Data Akademik",
+    "student": "Ghani",
+    "program": "Sistem Informasi",
+    "institution": "Universitas Nahdlatul Ulama Al Ghazali Cilacap",
+    "start": "2026-10-05",
+    "finish": "2027-01-14"
+  },
+  "tasks": [
+    [
+      1,
+      "PERSIAPAN PROYEK",
+      1
+    ],
+    [
+      2,
+      "Identifikasi masalah",
+      0,
+      "2026-10-05",
+      "2026-10-06",
+      [],
+      "Ghani – Project Manager"
+    ],
+    [
+      3,
+      "Menentukan tujuan proyek",
+      0,
+      "2026-10-07",
+      "2026-10-07",
+      [
+        2
+      ],
+      "Ghani – Project Manager"
+    ],
+    [
+      4,
+      "Menentukan ruang lingkup",
+      0,
+      "2026-10-08",
+      "2026-10-09",
+      [
+        3
+      ],
+      "Ghani – Project Manager"
+    ],
+    [
+      5,
+      "Penyusunan rencana proyek",
+      0,
+      "2026-10-12",
+      "2026-10-13",
+      [
+        4
+      ],
+      "Ghani – Project Manager"
+    ],
+    [
+      6,
+      "ANALISIS KEBUTUHAN",
+      1
+    ],
+    [
+      7,
+      "Pengumpulan kebutuhan pengguna",
+      0,
+      "2026-10-14",
+      "2026-10-16",
+      [
+        5
+      ],
+      "System Analyst"
+    ],
+    [
+      8,
+      "Observasi proses akademik",
+      0,
+      "2026-10-19",
+      "2026-10-20",
+      [
+        7
+      ],
+      "System Analyst"
+    ],
+    [
+      9,
+      "Analisis kebutuhan sistem",
+      0,
+      "2026-10-21",
+      "2026-10-23",
+      [
+        8
+      ],
+      "System Analyst"
+    ],
+    [
+      10,
+      "Analisis kebutuhan data",
+      0,
+      "2026-10-26",
+      "2026-10-28",
+      [
+        9
+      ],
+      "Data Analyst"
+    ],
+    [
+      11,
+      "Validasi kebutuhan",
+      0,
+      "2026-10-29",
+      "2026-10-30",
+      [
+        10
+      ],
+      "Ghani – Project Manager"
+    ],
+    [
+      12,
+      "PERANCANGAN SISTEM",
+      1
+    ],
+    [
+      13,
+      "Perancangan arsitektur sistem",
+      0,
+      "2026-11-02",
+      "2026-11-03",
+      [
+        11
+      ],
+      "System Analyst"
+    ],
+    [
+      14,
+      "Perancangan database",
+      0,
+      "2026-11-04",
+      "2026-11-06",
+      [
+        13
+      ],
+      "Database Administrator"
+    ],
+    [
+      15,
+      "Perancangan UML",
+      0,
+      "2026-11-04",
+      "2026-11-06",
+      [
+        13
+      ],
+      "System Analyst"
+    ],
+    [
+      16,
+      "Perancangan UI/UX",
+      0,
+      "2026-11-04",
+      "2026-11-09",
+      [
+        13
+      ],
+      "UI/UX Designer"
+    ],
+    [
+      17,
+      "Review desain sistem",
+      0,
+      "2026-11-10",
+      "2026-11-11",
+      [
+        14,
+        15,
+        16
+      ],
+      "Ghani – Project Manager"
+    ],
+    [
+      18,
+      "PEMBUATAN SISTEM",
+      1
+    ],
+    [
+      19,
+      "Implementasi database",
+      0,
+      "2026-11-12",
+      "2026-11-16",
+      [
+        17
+      ],
+      "Database Administrator"
+    ],
+    [
+      20,
+      "Implementasi backend",
+      0,
+      "2026-11-17",
+      "2026-11-23",
+      [
+        19
+      ],
+      "Backend Developer"
+    ],
+    [
+      21,
+      "Implementasi frontend",
+      0,
+      "2026-11-12",
+      "2026-11-18",
+      [
+        17
+      ],
+      "Frontend Developer"
+    ],
+    [
+      22,
+      "Implementasi fitur analisis data",
+      0,
+      "2026-11-24",
+      "2026-11-30",
+      [
+        20,
+        21
+      ],
+      "Data Analyst"
+    ],
+    [
+      23,
+      "Integrasi sistem",
+      0,
+      "2026-12-01",
+      "2026-12-03",
+      [
+        22
+      ],
+      "Backend Developer"
+    ],
+    [
+      24,
+      "PENGUJIAN",
+      1
+    ],
+    [
+      25,
+      "Pengujian database",
+      0,
+      "2026-12-04",
+      "2026-12-07",
+      [
+        23
+      ],
+      "Tester"
+    ],
+    [
+      26,
+      "Pengujian fungsi sistem",
+      0,
+      "2026-12-08",
+      "2026-12-10",
+      [
+        25
+      ],
+      "Tester"
+    ],
+    [
+      27,
+      "Pengujian UI/UX",
+      0,
+      "2026-12-11",
+      "2026-12-14",
+      [
+        26
+      ],
+      "UI/UX Designer; Tester"
+    ],
+    [
+      28,
+      "Perbaikan bug",
+      0,
+      "2026-12-15",
+      "2026-12-17",
+      [
+        27
+      ],
+      "Frontend Developer; Backend Developer"
+    ],
+    [
+      29,
+      "Pengujian akhir",
+      0,
+      "2026-12-18",
+      "2026-12-21",
+      [
+        28
+      ],
+      "Tester"
+    ],
+    [
+      30,
+      "IMPLEMENTASI & EVALUASI",
+      1
+    ],
+    [
+      31,
+      "Deployment sistem",
+      0,
+      "2026-12-22",
+      "2026-12-23",
+      [
+        29
+      ],
+      "Backend Developer; System Analyst"
+    ],
+    [
+      32,
+      "Uji coba pengguna",
+      0,
+      "2026-12-24",
+      "2026-12-28",
+      [
+        31
+      ],
+      "System Analyst; Tester"
+    ],
+    [
+      33,
+      "Evaluasi sistem",
+      0,
+      "2026-12-29",
+      "2026-12-30",
+      [
+        32
+      ],
+      "Ghani – Project Manager; Data Analyst"
+    ],
+    [
+      34,
+      "Perbaikan akhir",
+      0,
+      "2026-12-31",
+      "2027-01-04",
+      [
+        33
+      ],
+      "Frontend Developer; Backend Developer"
+    ],
+    [
+      35,
+      "DOKUMENTASI",
+      1
+    ],
+    [
+      36,
+      "Dokumentasi sistem",
+      0,
+      "2027-01-05",
+      "2027-01-07",
+      [
+        34
+      ],
+      "Documentation"
+    ],
+    [
+      37,
+      "Penyusunan laporan proyek",
+      0,
+      "2027-01-08",
+      "2027-01-13",
+      [
+        36
+      ],
+      "Ghani – Project Manager; Documentation"
+    ],
+    [
+      38,
+      "Presentasi proyek",
+      0,
+      "2027-01-14",
+      "2027-01-14",
+      [
+        37
+      ],
+      "Ghani – Project Manager"
+    ],
+    [
+      39,
+      "PROJECT SELESAI",
+      0,
+      "2027-01-14",
+      "2027-01-14",
+      [
+        38
+      ],
+      "Ghani – Project Manager",
+      1
+    ]
+  ]
+}
